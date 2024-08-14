@@ -16,7 +16,10 @@ const addBook = async (req,res) => {
         })
     } catch (error) {
         console.log(error);
-        
+        res.status(418).json({
+            msg: "Error see error code",
+            error:error.errors[0].message
+        })
     }
     
 }
