@@ -1,13 +1,16 @@
 require("dotenv").config();
 const express = require("express");
-const bookRouter = require("./routes/bookroutes");
+const bookRouter = require("./routes/bookRoutes");
+// import authorRouter
 const app = express();
 app.use(express.json());
 app.use(bookRouter);
 const Book = require("./db/models/bookmodel")
+//import author model
 
 function syncTables() {
     Book.sync({alter:true})
+    //sync author table
 }
 
 
